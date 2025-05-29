@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Androsova.Notes"
+             Title="Notes">
+    <VerticalStackLayout
+        Padding="30,0"
+        Spacing="25">
+        <Label 
+            Text="Welcome to .NET MAUI!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Entry 
+            x:Name="InputEntry"
+            Placeholder="Введите текст..."
+            HorizontalOptions="FillAndExpand" />
+
+        <HorizontalStackLayout
+            Spacing="10"
+            HorizontalOptions="Start">
+            <Button
+                x:Name="CounterBtn"
+                Text="Click" 
+                Clicked="OnCounterClicked1"/>
+
+            <Button
+                Text="Вывести текст"
+                Clicked="OnCounterClicked2" />
+            
+            <Button
+                Text="Save" 
+                Clicked="OnCounterClicked3" />
+
+            <Button
+                Text="Delete"
+                Clicked="OnCounterClicked4"/>
+        </HorizontalStackLayout>
+
+        <Label
+            x:Name="LableText"
+            Text="Здесь будет текст"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>
