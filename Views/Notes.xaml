@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Androsova.Models"
+             xmlns:style="clr-namespace:Androsova.Models"
+             x:Class="Androsova.Views.Notes"
+             Title="Notes"
+             BackgroundColor="{x:Static style:PlatformStyle.BackgroundColor}">
+
+    <ContentPage.BindingContext>
+        <models:Note />
+    </ContentPage.BindingContext>
+    
+    <VerticalStackLayout
+        Padding="30,0"
+        Spacing="25">
+        <Label 
+            Text="{Binding NotesText}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Entry 
+            x:Name="InputEntry"
+            Placeholder="Введите текст..."
+            HorizontalOptions="FillAndExpand" />
+
+        <HorizontalStackLayout
+            Spacing="10"
+            HorizontalOptions="Start">
+            <Button
+                x:Name="CounterBtn"
+                Text="Click" 
+                Clicked="OnCounterClicked1"
+                BackgroundColor="{x:Static style:PlatformStyle.ButtonColor}"
+                TextColor="{x:Static style:PlatformStyle.ButtonTextColor}"/>
+
+            <Button
+                Text="Вывести текст"
+                Clicked="OnCounterClicked2" 
+                BackgroundColor="{x:Static style:PlatformStyle.ButtonColor}"
+                TextColor="{x:Static style:PlatformStyle.ButtonTextColor}"/>
+            
+            <Button
+                Text="Save" 
+                Clicked="OnCounterClicked3" 
+                BackgroundColor="{x:Static style:PlatformStyle.ButtonColor}"
+                TextColor="{x:Static style:PlatformStyle.ButtonTextColor}"/>
+
+            <Button
+                Text="Delete"
+                Clicked="OnCounterClicked4"
+                BackgroundColor="{x:Static style:PlatformStyle.ButtonColor}"
+                TextColor="{x:Static style:PlatformStyle.ButtonTextColor}"/>
+        </HorizontalStackLayout>
+
+        <Label
+            x:Name="LableText"
+            Text="Здесь будет текст"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>

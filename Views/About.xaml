@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Androsova.About"
-             Title="About">
+             xmlns:models="clr-namespace:Androsova.Models"
+             xmlns:style="clr-namespace:Androsova.Models"
+             x:Class="Androsova.Views.About"
+             Title="About"
+             BackgroundColor="{x:Static style:PlatformStyle.BackgroundColor}">
+
+    <ContentPage.BindingContext>
+        <models:About />
+    </ContentPage.BindingContext>
+    
     <VerticalStackLayout>
         <Image
             Source="timka.png"
@@ -11,7 +19,7 @@
             SemanticProperties.Description="dot net bot in a race car number eight" />
 
         <Label 
-            Text="РГАУ-МСХА им. Тимирязева К. А."
+            Text="{Binding AboutText}"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
@@ -19,6 +27,8 @@
             x:Name="CounterBtn"
             Text="Перейти на сайт" 
             Clicked="OnCounterClicked"
-            HorizontalOptions="Fill" />
+            HorizontalOptions="Fill"
+            BackgroundColor="{x:Static style:PlatformStyle.ButtonColor}"
+            TextColor="{x:Static style:PlatformStyle.ButtonTextColor}"/>
     </VerticalStackLayout>
 </ContentPage>

@@ -1,10 +1,8 @@
-namespace Androsova;
+namespace Androsova.Views;
 
 public partial class Notes : ContentPage
 {
     int count = 0;
-    private readonly string _filename = Path.Combine(FileSystem.AppDataDirectory, "notes.txt");
-
 
     public Notes()
     {
@@ -29,10 +27,11 @@ public partial class Notes : ContentPage
     }
     private async void OnCounterClicked3(object sender, EventArgs e)
     {
+        var noteModel = (Models.Note)BindingContext;
         try
         {
-            await File.WriteAllTextAsync(_filename, InputEntry.Text);
-            LableText.Text = $"Заметка сохранена в: {_filename}";
+            await File.WriteAllTextAsync(noteModel.FilePath, InputEntry.Text);
+            LableText.Text = $"Заметка сохранена в: {noteModel.FilePath}";
 
         }
         catch (Exception ex)
@@ -44,9 +43,10 @@ public partial class Notes : ContentPage
 
     private void OnCounterClicked4(object sender, EventArgs e)
     {
-        if (File.Exists(_filename))
+        var noteModel = (Models.Note)BindingContext;
+        if (File.Exists(noteModel.FilePath))
         {
-            File.Delete(_filename);
+            File.Delete(noteModel.FilePath);
             LableText.Text = "Заметка удалена";
         }
         else
@@ -57,10 +57,11 @@ public partial class Notes : ContentPage
 
     private async void LoadSavedText()
     {
-        if (File.Exists(_filename))
+        var noteModel = (Models.Note)BindingContext;
+        if (File.Exists(noteModel.FilePath))
         {
-            InputEntry.Text = await File.ReadAllTextAsync(_filename);
+            InputEntry.Text = await File.ReadAllTextAsync(noteModel.FilePath);
         }
-        
+
     }
 }

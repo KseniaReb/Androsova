@@ -1,4 +1,4 @@
-namespace Androsova;
+namespace Androsova.Views;
 
 public partial class About : ContentPage
 {
@@ -8,10 +8,9 @@ public partial class About : ContentPage
 	}
     private async void OnCounterClicked(object sender, EventArgs e)
     {
-        // Адрес сайта
-        string siteAddress = "https://www.timacad.ru/";
 
         // Открываем сайт в системном браузере
-        await Launcher.Default.OpenAsync(siteAddress);
+        var aboutModel = (Models.About)BindingContext;
+        await Launcher.Default.OpenAsync(aboutModel.siteAddress);
     }
 }
